@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from database.base import Base
 
 
-class Currency(Base):
+class LocalCurrency(Base):
     __tablename__ = "currency"
 
     id = Column(Integer, primary_key=True)
@@ -12,4 +12,4 @@ class Currency(Base):
     deleted = Column(Boolean, server_default='f')
     name = Column(String)
     code = Column(String(3), default=None, nullable=True)
-    account = relationship("Account", back_populates="currency")
+    account = relationship("LocalAccount", back_populates="currency")
