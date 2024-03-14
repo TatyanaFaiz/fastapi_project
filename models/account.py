@@ -1,4 +1,6 @@
 from sqlalchemy import Column, Integer, String, TIMESTAMP, func, Boolean, ForeignKey, DECIMAL
+from sqlalchemy.orm import relationship
+
 from database.base import Base
 
 
@@ -12,3 +14,4 @@ class Account(Base):
     description = Column(String)
     balance = Column(DECIMAL)
     currency_id = Column(Integer, ForeignKey("currency.id"))
+    currency = relationship("Currency", back_populates="account")
