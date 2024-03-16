@@ -1,20 +1,22 @@
+from datetime import datetime
 from decimal import Decimal
+
 from pydantic import BaseModel
 
 
 class AccountBase(BaseModel):
     name: str
     description: str
+
+
+class AccountCreate(AccountBase):
     balance: Decimal
     currency_id: int
 
 
-class AccountCreate(AccountBase):
-    pass
-
-
 class AccountUpdate(AccountBase):
-    pass
+    deleted: bool
+    timestamp: datetime
 
 
 # Properties shared by models stored in DB
