@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class CurrencyBase(BaseModel):
@@ -15,10 +15,7 @@ class CurrencyUpdate(CurrencyBase):
 
 # Properties shared by models stored in DB
 class CurrencyInDBBase(CurrencyBase):
-    pass
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # Additional properties to return via API
