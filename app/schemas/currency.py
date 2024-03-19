@@ -1,8 +1,11 @@
-from pydantic import BaseModel, ConfigDict
+from typing import Annotated
+
+from pydantic import BaseModel, ConfigDict, StringConstraints
 
 
 class CurrencyBase(BaseModel):
-    pass
+    name: str
+    code: Annotated[str, StringConstraints(max_length=3)]
 
 
 class CurrencyCreate(CurrencyBase):
