@@ -1,7 +1,8 @@
 from datetime import datetime
 from decimal import Decimal
+from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class AccountBase(BaseModel):
@@ -15,16 +16,15 @@ class AccountCreate(AccountBase):
 
 
 class AccountUpdate(AccountBase):
-    deleted: bool
-    timestamp: datetime
+    deleted: bool = False
+    timestamp: Optional[datetime] = datetime.now()
 
 
 # Properties shared by models stored in DB
 class AccountInDBBase(AccountBase):
     id: int
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # Additional properties to return via API

@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP, func
 from sqlalchemy.orm import relationship
 
-from database.base import Base
+from app.database.base import Base
 
 
 class LocalCurrency(Base):

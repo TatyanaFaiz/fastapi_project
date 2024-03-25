@@ -1,8 +1,11 @@
-from pydantic import BaseModel
+from typing import Annotated
+
+from pydantic import BaseModel, ConfigDict, StringConstraints
 
 
 class CurrencyBase(BaseModel):
-    pass
+    name: str
+    code: Annotated[str, StringConstraints(max_length=3)]
 
 
 class CurrencyCreate(CurrencyBase):
@@ -15,10 +18,7 @@ class CurrencyUpdate(CurrencyBase):
 
 # Properties shared by models stored in DB
 class CurrencyInDBBase(CurrencyBase):
-    pass
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # Additional properties to return via API

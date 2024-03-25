@@ -3,8 +3,8 @@ from typing import Optional
 from sqlalchemy.orm import Session
 
 from .base import CRUDBase
-from models import LocalAccount, LocalCurrency
-from schemas import AccountCreate, AccountUpdate
+from app.models import LocalAccount, LocalCurrency
+from app.schemas import AccountCreate, AccountUpdate
 
 
 class CRUDAccount(CRUDBase[LocalAccount, AccountCreate, AccountUpdate]):

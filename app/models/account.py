@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, TIMESTAMP, func, Boolean, ForeignKey, DECIMAL
 from sqlalchemy.orm import relationship
 
-from database.base import Base
+from app.database.base import Base
 
 
 class LocalAccount(Base):
