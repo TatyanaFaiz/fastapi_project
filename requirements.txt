@@ -9,3 +9,4 @@ Faker==24.2.0
 pytest==8.1.1
 celery==5.3.5
 flower==2.0.1
+pydantic-settings==2.2.1
