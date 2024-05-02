@@ -7,6 +7,10 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     PROJECT_NAME: str
+    PROJECT_DESCRIPTION: str
+    API_URL: str
+    API_VERSION: str
+    API_V1_STR: str = ""
 
     POSTGRES_SERVER: str
     POSTGRES_PORT: int
