@@ -35,3 +35,9 @@ class Account(AccountInDBBase):
 # Additional properties stored in DB
 class AccountInDB(AccountInDBBase):
     pass
+
+
+class AccountData(BaseModel):
+    id: int
+    name: Optional[str]
+    description: Optional[str]
