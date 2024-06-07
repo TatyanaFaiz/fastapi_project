@@ -41,3 +41,38 @@ class AccountData(BaseModel):
     id: int
     name: Optional[str]
     description: Optional[str]
+    balance: Optional[Decimal] = None
+    currency: Optional[str] = None
+
+    @staticmethod
+    def get_examples():
+        examples = {
+            200: {
+                "description": "Successful Response",
+                "content": {
+                    "application/json": {
+                        "examples": {
+                            "with_balance": {
+                                "summary": 'Сведения с балансом',
+                                "value":  {
+                                    "id": 1,
+                                    "name": "Test account",
+                                    "description": "Test account description",
+                                    "balance": 100.98,
+                                    "currency": "EUR"
+                                }
+                            },
+                            "without_balance": {
+                                "summary": 'Сведения без баланса',
+                                "value": {
+                                    "id": 2,
+                                    "name": "Test account",
+                                    "description": "Test account description"
+                                }
+                            },
+                        }
+                    }
+                }
+            },
+        }
+        return examples
