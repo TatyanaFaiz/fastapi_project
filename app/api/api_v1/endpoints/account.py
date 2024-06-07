@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Depends, HTTPException
-from pydantic import Field
 from sqlalchemy.orm import Session
 from fastapi.responses import JSONResponse
 
